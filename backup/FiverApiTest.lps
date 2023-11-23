@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="FiverApiTest.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="17" Y="11"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="fiverapi.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="FiverApi"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="205"/>
+        <CursorPos X="40" Y="226"/>
+        <UsageCount Value="30"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\Indy10\Core\IdIPAddress.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="68"/>
+        <CursorPos X="22" Y="96"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-extra\src\win\sockets.pp"/>
+        <UnitName Value="Sockets"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="167"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-extra\src\win\fpwinsockh.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="9"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\packages\rtl-extra\src\win\winsock2.pp"/>
+        <UnitName Value="WinSock2"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="311"/>
+        <CursorPos X="3" Y="332"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\Indy10\System\IdStreamVCL.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="73"/>
+        <CursorPos X="16" Y="94"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\components\Indy10\System\IdGlobal.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1356"/>
+        <CursorPos X="19" Y="1377"/>
+        <UsageCount Value="10"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="171" Column="15" TopLine="163"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="17" Column="28"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="55" Column="13" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="21" Column="14"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="150" Column="5" TopLine="145"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="23" Column="14"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="211" Column="42" TopLine="179"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="92" TopLine="61"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="74" Column="26" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="88" Column="27" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="93" Column="48" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="80" Column="62" TopLine="58"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="9" TopLine="20"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="18" Column="29"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="27" Column="51" TopLine="3"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="188" Column="15" TopLine="164"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="28" Column="39" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="194" Column="3" TopLine="192"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="27" Column="14" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="188" Column="27" TopLine="186"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="28" Column="38" TopLine="27"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="194" Column="6" TopLine="190"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="250" Column="55" TopLine="220"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="191" Column="23" TopLine="160"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="66" Column="91" TopLine="51"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="203" Column="61" TopLine="186"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="29" Column="14" TopLine="8"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="231" Column="24" TopLine="205"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="255" Column="71" TopLine="234"/>
+      </Position>
+      <Position>
+        <Filename Value="fiverapi.pas"/>
+        <Caret Line="226" Column="45" TopLine="205"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="fiverapi.pas"/>
+        <Line Value="226"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
+</CONFIG>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\i386-win32\fpc.exe" Date="1449426723"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw2 -godwarfsets -gl -l -vewnhibq -FiC:\Users\Cassiano.Baltazar\Desktop\Api\lib\i386-win32 -FuC:\lazarus\components\Indy10\Core -FuC:\lazarus\components\Indy10\Protocols -FuC:\lazarus\components\Indy10\System -FuC:\lazarus\components\mORMot -FuC:\lazarus\components\mORMot\SynDBDataset -FuC:\lazarus\components\mORMot\SQLite3 -FuC:\lazarus\components\mORMot\CrossPlatform -FuC:\Users\Cassiano.Baltazar\Desktop\Api\ -FUC:\Users\Cassiano.Baltazar\Desktop\Api\lib\i386-win32\ -FEC:\Users\Cassiano.Baltazar\Desktop\Api\ -oC:\Users\Cassiano.Baltazar\Desktop\Api\FiverApiTest.exe FiverApiTest.lpr"/>
+</CONFIG>
