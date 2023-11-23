@@ -5,7 +5,7 @@ unit FiverApi;
 interface
 
 uses
-  Classes, SysUtils, Sockets, HTTPDefs, IdGlobal, IdIPAddress, SynCommons;
+  Classes, SysUtils, Sockets, HTTPDefs, base64, IdGlobal, IdIPAddress, SynCommons;
 
 type
   TType = (TTCP, TUDP);
@@ -26,6 +26,7 @@ type
     //Decode
     function DecodeHeader(AHeader: string): string;
     function DecodeV1(AHeader: string): string;
+    function DecodeV1UDP(AHeader: string): string;
     function DecodeV2(AHeader: string): string;
   public
     class procedure EncodeProxy(ARequest: TRequest; AResponse: TResponse);
@@ -47,6 +48,43 @@ begin
   SetLength(Result, 2);
   Result[1] := AnsiChar((value shr 8) and $FF);
   Result[2] := AnsiChar(value and $FF);
+end;
+
+function StreamToBase64(const AStream: TMemoryStream; out Base64: String): Boolean;
+var
+  Str: String;
+begin
+  Result := False;
+  if AStream.Size = 0 then
+    Exit;
+  AStream.Position := 0;
+  try
+    SetLength(Str, AStream.Size div SizeOf(Char));
+    AStream.ReadBuffer(Pointer(Str)^, AStream.Size div SizeOf(Char));
+    Base64 := EncodeStringBase64(Str);
+    Result := Length(Base64) > 0;
+  except
+    on E: Exception do
+      WriteLn(E.Message);
+  end;
+end;
+
+function Base64ToStream(const ABase64: String; var AStream: TMemoryStream): Boolean;
+var
+  Str: String;
+begin
+  Result := False;
+  if Length(Trim(ABase64)) = 0 then
+    Exit;
+  try
+    Str := DecodeStringBase64(ABase64);
+    AStream.Write(Pointer(Str)^, Length(Str) div SizeOf(Char));
+    AStream.Position := 0;
+    Result := AStream.Size > 0;
+  except
+    on E: Exception do
+      WriteLn(E.Message);
+  end;
 end;
 
 { TFiverApi }
@@ -83,40 +121,56 @@ var
   protocol: Byte;
   length: Word;
   IPAddress: TIdIPAddress;
+
+  header: TMemoryStream;
+  signature: Word;
+  versionCmd: Byte;
 begin
   IPAddress := TIdIPAddress.MakeAddressObject(AIP);
   try
-    if IPAddress.AddrType = Id_IPv4 then
-    begin
-      // Proxy Protocol v2 header format
-      protocol := Sockets.AF_INET;  // AF_INET (IPv4)
-      // 12 for IPv4
-      length := 12;
+    header := TMemoryStream.Create;
+    try
+      // Signature: 0x0D0A
+      signature := $0D0A;
+      header.Write(signature, SizeOf(signature));
 
-      // Convert IP addresses to binary format
-      ip := NetAddrToStr(StrToHostAddr(AIP));
-      ip += NetAddrToStr(StrToHostAddr(IPV4Server));
+      // Version and command: 0x21 (binary 0010 0001)
+      versionCmd := $21;
+      header.Write(versionCmd, SizeOf(versionCmd));
 
-      // Add ports
-      port := BigEndianWord(StrToInt(APort)) + BigEndianWord(StrToInt(IPV4ServerPort));
-    end
-    else if IPAddress.AddrType = Id_IPv6 then
-    begin
-      protocol := Sockets.AF_INET6;  // AF_INET6 (IPv6)
-      // 16 for IPv6
-      length := 28;
+      if IPAddress.AddrType = Id_IPv4 then
+      begin
+        // Family and protocol: 0x11 (binary 0001 0001)
+        header.WriteByte($11);
 
-      // Convert IP addresses to binary format
-      ip += NetAddrToStr6(StrToHostAddr6(AIP));
-      ip += NetAddrToStr6(StrToHostAddr6(IPV6Server));
+        // Length: 0x0010 (binary 0000 0000 0001 0000)
+        header.WriteWord(12);
 
-      // Add ports
-      port := BigEndianWord(StrToInt(APort)) + BigEndianWord(StrToInt(IPV6ServerPort));
-    end
-    else
-      raise Exception.Create('Invalid IP Address');
+        // Source and destination addresses
+        header.WriteAnsiString(AIP); // Source address (IPv4)
+        header.WriteAnsiString(IPV4Server); // Destination address (IPv4)
+        header.WriteAnsiString(APort); // Source port
+        header.WriteAnsiString(IPV4ServerPort); // Destination port
+      end
+      else if IPAddress.AddrType = Id_IPv6 then
+      begin
+        // Family and protocol: 0x11 (binary 0001 0001)
+        header.WriteByte($21);
 
-    Result := #13#10#13#10#0#13#10#81#85#73#84#10 + AnsiChar(protocol) + AnsiChar(length) + ip + port;
+        // Length: 0x0010 (binary 0000 0000 0001 0000)
+        header.WriteWord(28);
+
+        // Source and destination addresses
+        header.WriteAnsiString(AIP); // Source address (IPv4)
+        header.WriteAnsiString(IPV6Server); // Destination address (IPv4)
+        header.WriteAnsiString(APort); // Source port
+        header.WriteAnsiString(IPV6ServerPort); // Destination port
+      end;
+
+      StreamToBase64(header, Result);
+    finally
+      header.Free;
+    end;
   finally
     IPAddress.Free;
   end;
@@ -156,7 +210,7 @@ function TFiverApi.GetProxyHeaderTCPIPV4(AIP, APort: string; AVersion: Integer):
 begin
   if AVersion = 1 then
   begin
-    Result := Format(ProxyString, ['TCP4 ', AIP, IPV4Server, APort, IPV4ServerPort]);
+    Result := Format(ProxyString, ['TCP4', AIP, IPV4Server, APort, IPV4ServerPort]);
   end
   else if AVersion = 2 then
   begin
@@ -180,7 +234,7 @@ function TFiverApi.GetProxyHeaderTCPIPV6(AIP, APort: string; AVersion: Integer):
 begin
   if AVersion = 1 then
   begin
-    Result := Format(ProxyString, ['TCP6 ', AIP, IPV6Server, APort, IPV6ServerPort]);
+    Result := Format(ProxyString, ['TCP6', AIP, IPV6Server, APort, IPV6ServerPort]);
   end
   else if AVersion = 2 then
   begin
@@ -204,6 +258,8 @@ function TFiverApi.DecodeHeader(AHeader: string): string;
 begin
   if pos('PROXY ', AHeader) > 0 then
     Result := DecodeV1(AHeader)
+  else if pos('CLIENT=', AHeader) > 0 then
+    Result := DecodeV1UDP(AHeader)
   else
     Result := DecodeV2(AHeader);
 end;
@@ -228,6 +284,34 @@ begin
         json.AddValue('CLIENT_PORT', sl[4]);
         json.AddValue('PROXY_IP', sl[3]);
         json.AddValue('PROXY_PORT', sl[5]);
+        Result := json.ToJSON;
+      finally
+        json.Clear;
+      end;
+    end;
+  finally
+    sl.Free;
+  end;
+end;
+
+function TFiverApi.DecodeV1UDP(AHeader: string): string;
+var
+  sl: TStringList;
+  json: TDocVariantData;
+  Client, Server: string;
+begin
+  Result := '';
+  sl := TStringList.Create;
+  try
+    sl.Delimiter := ' ';
+    sl.DelimitedText := AHeader;
+
+    if sl.Count > 0 then
+    begin
+      json.InitFast;
+      try
+        json.AddValue('CLIENT', copy(sl[0], pos('CLIENT=', sl[0]), length(sl[0])));
+        json.AddValue('PROXY', copy(sl[1], pos('PROXY=', sl[1]), length(sl[1])));
         Result := json.ToJSON;
       finally
         json.Clear;
