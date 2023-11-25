@@ -9,8 +9,8 @@
         <Filename Value="FiverApiTest.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="17" Y="11"/>
-        <UsageCount Value="31"/>
+        <CursorPos X="31" Y="21"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -18,9 +18,10 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="FiverApi"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="162"/>
-        <CursorPos X="4" Y="303"/>
-        <UsageCount Value="31"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="24"/>
+        <CursorPos X="89" Y="35"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -65,127 +66,25 @@
         <CursorPos X="19" Y="1377"/>
         <UsageCount Value="10"/>
       </Unit>
+      <Unit>
+        <Filename Value="uProxyUtils.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="2">
       <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="262" Column="44" TopLine="240"/>
+        <Filename Value="FiverApiTest.lpr"/>
+        <Caret Line="14" Column="41"/>
+      </Position>
+      <Position>
+        <Filename Value="FiverApiTest.lpr"/>
+        <Caret Line="21" Column="31"/>
       </Position>
       <Position>
         <Filename Value="fiverapi.pas"/>
-        <Caret Line="289" TopLine="269"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="290" TopLine="269"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="293" TopLine="269"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="294" TopLine="269"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="295" TopLine="269"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="271" TopLine="262"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="256" TopLine="237"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="262" Column="26" TopLine="237"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="265" TopLine="237"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="261" TopLine="237"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="259" TopLine="237"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="302" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="303" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="304" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="305" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="306" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="307" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="309" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="311" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="312" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="313" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="314" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="315" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="312" TopLine="281"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="317" TopLine="283"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="318" TopLine="284"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="305" TopLine="284"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="321" TopLine="287"/>
-      </Position>
-      <Position>
-        <Filename Value="fiverapi.pas"/>
-        <Caret Line="322" TopLine="288"/>
+        <Caret Line="35" Column="59" TopLine="14"/>
       </Position>
     </JumpHistory>
     <RunParams>

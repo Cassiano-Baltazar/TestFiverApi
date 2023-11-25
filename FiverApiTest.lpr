@@ -6,7 +6,7 @@ uses
   {$IFDEF UNIX}
   cthreads,
   {$ENDIF}
-  SysUtils, fphttpapp, HTTPDefs, httproute, FiverApi;
+  SysUtils, uProxyUtils, FiverApi, fphttpapp, HTTPDefs, httproute;
 
 procedure CatchAllEndPoint(ARequest: TRequest; AResponse: TResponse);
 begin

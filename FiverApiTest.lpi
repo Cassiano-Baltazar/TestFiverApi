@@ -34,6 +34,10 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="FiverApi"/>
       </Unit>
+      <Unit>
+        <Filename Value="uProxyUtils.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
